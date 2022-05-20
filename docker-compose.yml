@@ -1,0 +1,9 @@
+version: "3.3"
+services:
+  with-env_file:
+    build: ./
+    container_name: 'docker-doiwallet-release'       
+    env_file:
+      - ./keystore_files/env_base64.env
+    
+  
