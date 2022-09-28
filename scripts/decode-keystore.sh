@@ -5,8 +5,11 @@ apt-get install -y locales locales-all
 git clone -b $BRANCH --single-branch https://github.com/davidreband/DoiWallet.git 
 
 cd DoiWallet  
-yarn install 
-yarn add @keystonehq/bc-ur-registry 
+npm install -g npm@8.19.2
+npm install 
+npm i @keystonehq/bc-ur-registry
+npm i jetifier
+./scripts/current-branch.sh > current-branch.json
 cd android
 gem install bundler
 bundle install 
@@ -25,7 +28,8 @@ echo "keystore properties written"
 #fastlane increment_vc
 #fastlane run increment_build_number
 #fastlane add_plugin increment_version_code
+echo "increment_vc start"
 bundle exec fastlane increment_vc
-echo "increment version code"
+
 bundle exec fastlane beta
 echo "bundle generation"
